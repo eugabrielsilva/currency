@@ -1,0 +1,30 @@
+{
+    "name": "eugabrielsilva/currency",
+    "description": "PHP currency manipulation class.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gabriel Silva"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Currency\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "archive": {
+        "exclude": [
+            "docs",
+            "tests",
+            ".github"
+        ]
+    }
+}
