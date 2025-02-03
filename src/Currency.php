@@ -2,6 +2,10 @@
 
 namespace Currency;
 
+/**
+ * PHP currency manipulation class.
+ * @author Gabriel Silva
+ */
 class Currency
 {
     /**
