@@ -1,6 +1,8 @@
 ## Currency for PHP
 
-This package is a translation of [currency.js](https://github.com/scurker/currency.js) for PHP.
+This package is a translation of [currency.js](https://github.com/scurker/currency.js) for PHP. It was built to work around floating point issues when working with currency values.
+
+Currency works with values as integers behind the scenes, resolving some of the most basic precision problems.
 
 ### Installation
 

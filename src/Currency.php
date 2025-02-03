@@ -13,7 +13,7 @@ class Currency
      *
      * @var array
      */
-    private static $defaults = [
+    private const DEFAULTS = [
         'symbol'           => '$',
         'separator'        => ',',
         'decimal'          => '.',
@@ -21,10 +21,8 @@ class Currency
         'precision'        => 2,
         'pattern'          => '!#',
         'negativePattern'  => '-!#',
-        // If no custom format is provided, the defaultFormat() method is used.
         'format'           => null,
         'fromCents'        => false,
-        // If true, will use the Vedic (Indian numbering) grouping.
         'useVedic'         => false,
     ];
 
@@ -33,14 +31,14 @@ class Currency
      *
      * @var string
      */
-    private static $groupRegex = '/(\d)(?=(\d{3})+\b)/';
+    private const GROUP_REGEX = '/(\d)(?=(\d{3})+\b)/';
 
     /**
      * Regular expression for Vedic grouping.
      *
      * @var string
      */
-    private static $vedicRegex = '/(\d)(?=(\d\d)+\d\b)/';
+    private const VEDIC_REGEX = '/(\d)(?=(\d\d)+\d\b)/';
 
     /**
      * Internal integer value (scaled value).
@@ -80,7 +78,7 @@ class Currency
     public function __construct($value, array $opts = [])
     {
         // Merge default settings with provided options.
-        $this->_settings = array_merge(self::$defaults, $opts);
+        $this->_settings = array_merge(self::DEFAULTS, $opts);
 
         $this->_precision = pow(10, $this->_settings['precision']);
 
@@ -96,9 +94,9 @@ class Currency
 
         // Set grouping based on whether Vedic numbering is used.
         if (!empty($this->_settings['useVedic'])) {
-            $this->_settings['groups'] = self::$vedicRegex;
+            $this->_settings['groups'] = self::VEDIC_REGEX;
         } else {
-            $this->_settings['groups'] = self::$groupRegex;
+            $this->_settings['groups'] = self::GROUP_REGEX;
         }
     }
 
